@@ -11,7 +11,7 @@ class Block:
         self.mine_block()
         
     def generate_hash(self):
-        block_contents = str([transaction.string for transaction in self.transactions]) + str(self.previous_hash) + str(self.nonce)
+        block_contents = str([transaction.hash for transaction in self.transactions]) + str(self.previous_hash) + str(self.nonce)
         return sha256(block_contents.encode()).hexdigest()
     
     def mine_block(self):
